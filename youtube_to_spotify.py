@@ -1,9 +1,7 @@
 import os
-import requests
 import yt_dlp
 import shutil
 import time
-from bs4 import BeautifulSoup
 import tkinter as tk
 from tkinter import  messagebox
 
@@ -56,7 +54,7 @@ def main(query):
 
     print(f"Got file: {file}")
 
-    # Wait for the file to be moved
+    # wait for the file to be moved
     while not os.path.exists(file):
         time.sleep(1)
 
@@ -72,21 +70,19 @@ def start_download():
     query = entry.get()
     main(query)
 
-# Create a GUI window using tkinter
+# create a GUI window using tkinter
 root = tk.Tk()
 root.title("YouTube Audio Downloader")
 
-# Create a label
-label = tk.Label(root, text="Enter video URL or search query:")
+
+label = tk.Label(root, text="Enter video URL:")
 label.pack()
 
-# Create an entry field
+
 entry = tk.Entry(root, width=50)
 entry.pack()
 
-# Create a button to start the download process
 button = tk.Button(root, text="Download", command=start_download)
 button.pack()
 
-# Run the GUI
 root.mainloop()
